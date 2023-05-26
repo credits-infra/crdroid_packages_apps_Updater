@@ -164,9 +164,11 @@ public class Utils {
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
 
+        String hanaVariant = SystemProperties.get(Constants.PROP_HANA_VARIANT);
+
         String serverUrl = context.getString(R.string.updater_server_url);
 
-        return serverUrl.replace("{device}", device);
+        return serverUrl.replace("{device}", device).replace("{hanavariant}", hanaVariant);
     }
 
     public static String getUpgradeBlockedURL(Context context) {
